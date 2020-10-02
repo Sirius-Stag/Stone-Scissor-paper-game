@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <conio.h>
 
 int WithComputer(int n);
 int WithPartner(int n);
@@ -15,7 +16,7 @@ int main () {
    
    
    printf("\t\tWELCOME TO THE GAME OF STONE PAPER SCISSOR !!!\n\n");
-   printf("********************************************************************************************************************************************\n\n");
+   printf("************************************************\n\n");
    
    printf("The game is available in two forms - Game with Computer & Two Player Game\n");
    
@@ -48,62 +49,66 @@ int main () {
    return 0;
 }
 
-int WithComputer(int n){
-	int m,z;
+int WithComputer(int n1){
+	int m,z,n;
 	int e;
+	 time_t t;
+   
+   srand((unsigned) time(&t));
+   n =rand() % 3;
 	printf("so you want to play with Computer!!\n");
 	
-	printf("Let's start!!\n Enter 1 for Scissor\n Enter 2 for Stone \n Enter 3 for paper\n");
+	printf("Let's start!!\n Enter 1 for Scissor\t||\tEnter 2 for Stone \t||\t Enter 3 for paper\n");
 	scanf("%d", &m);
 	if(n==0){
 		if(m==1){
 			printf("COMPUTER- Scissor | PLAYER -scissor\n" );
-			printf("Game Draw!!\n");
+			printf("Game Draw!!\n\n");
 		}
 		else if(m==2){
 			printf("COMPUTER- Scissor | PLAYER -stone\n" );
-			printf("Player Wins!!\n");
+			printf("Player Wins!!\n\n");
 		}
 		else if(m==3){
 			printf("COMPUTER- Scissor | PLAYER -Paper\n" );
-			printf("Computer Wins!!\n");
+			printf("Computer Wins!!\n\n");
 		}
 		else{
-			printf("Wrong Input By player !!\n Computer wins !!");
+			printf("Wrong Input By player !!\n Computer wins !!\n\n");
 		}
 	}
 	else if(n==1){
 		if(m==1){
 			printf("COMPUTER- Stone | PLAYER -scissor\n" );
-			printf("Computer Wins!!\n");
+			printf("Computer Wins!!\n\n");
 		}
 		else if(m==2){
 			printf("COMPUTER- Stone | PLAYER -stone\n" );
-			printf("Game Draw!!\n");
+			printf("Game Draw!!\n\n");
 		}
 		else if(m==3){
 			printf("COMPUTER- Stone | PLAYER -Paper\n" );
-			printf("Player Wins!!\n");
+			printf("Player Wins!!\n\n");
 		}
 		else{
-			printf("Wrong Input By player !!\n Computer wins !!");
+			printf("Wrong Input By player !!\n Computer wins !!\n\n");
 		}
 	}
 	else{
 			if(m==1){
 			printf("COMPUTER- Paper | PLAYER -scissor\n" );
-			printf("Palyer Wins!!\n");
+			printf("Palyer Wins!!\n\n");
 		}
 		else if(m==2){
 			printf("COMPUTER- Paper | PLAYER -stone\n" );
-			printf("Computer Wins!!\n");
+			printf("Computer Wins!!\n\n");
 		}
 		else if(m==3){
 			printf("COMPUTER- Paper | PLAYER -Paper\n" );
-			printf("Game Draw!!\n");
+			printf("Game Draw!!\n\n");
 		}
 		else{
-			printf("Wrong Input By player !!\n Computer wins !!");
+			printf("Wrong Input By player !!\n Computer wins !!\n\n");
 		}
 	}
 	
@@ -122,75 +127,105 @@ int WithComputer(int n){
 
 
 int WithPartner(int n){
-	int m,b,z2;
+	int z2,m,b;
+	char ch,p1,ch2,p2;
 	int e;
 	printf("so you want to play a Two Player Game!!\n");
 	
-	printf("Let's start!!\n Enter 1 for Scissor\n Enter 2 for Stone \n Enter 3 for paper\n");
+	printf("Let's start!!\n Enter 1 for Scissor\t||\t Enter 2 for Stone \t||\t Enter 3 for paper\n");
 	printf("Player1 Enter -\n");
-	scanf("%d", &b);
+	ch = getch();
+	p1 =ch;
+	ch='*';
+	printf("%c\n", ch);
+	b = p1 - '0';
+	if(b<=0|| b>3){
+		printf("wrong input by Player1 !!\n");
+		goto next;
+	}
 	printf("Player2 Enter -\n");
-	scanf("%d", &m);
-	if(b==0){
+	ch2 = getch();
+	p2 =ch2;
+	ch2='*';
+	printf("%c\n", ch2);
+	m = p2 - '0';
+	if(m<=0 || m>3){
+		printf("wrong input by Player2 !!\n");
+		goto next;
+	}
+	if(b==1){
 		if(m==1){
 			printf("PLAYER1- Scissor | PLAYER2 -scissor\n" );
-			printf("Game Draw!!\n");
+			printf("Game Draw!!\n\n");
 		}
 		else if(m==2){
 			printf("PLAYER1- Scissor | PLAYER2 -stone\n" );
-			printf("Player2 Wins!!\n");
+			printf("Player2 Wins!!\n\n");
 		}
 		else if(m==3){
 			printf("PLAYER1- Scissor | PLAYER2 -Paper\n" );
-			printf("PLAYER1 Wins!!\n");
+			printf("PLAYER1 Wins!!\n\n");
 		}
 		else{
-			printf("Wrong Input By player !!\n Computer wins !!");
+			printf("Wrong Input By player !!\n\n");
 		}
 	}
-	else if(b==1){
+	else if(b==2){
 		if(m==1){
 			printf("PLAYER1- Stone | PLAYER2 -scissor\n" );
-			printf("PLAYER1 Wins!!\n");
+			printf("PLAYER1 Wins!!\n\n");
 		}
 		else if(m==2){
 			printf("PLAYER1- Stone | PLAYER2 -stone\n" );
-			printf("Game Draw!!\n");
+			printf("Game Draw!!\n\n");
 		}
 		else if(m==3){
 			printf("PLAYER1- Stone | PLAYER2 -Paper\n" );
-			printf("Player2 Wins!!\n");
+			printf("Player2 Wins!!\n\n");
 		}
 		else{
-			printf("Wrong Input By player !!\n Computer wins !!");
+			printf("Wrong Input By player !!\n\n");
 		}
 	}
 	else{
 			if(m==1){
 			printf("PLAYER1- Paper | PLAYER2 -scissor\n" );
-			printf("Palyer2 Wins!!\n");
+			printf("Palyer2 Wins!!\n\n");
 		}
 		else if(m==2){
 			printf("PLAYER1- Paper | PLAYER2 -stone\n" );
-			printf("PLAYER1 Wins!!\n");
+			printf("PLAYER1 Wins!!\n\n");
 		}
 		else if(m==3){
 			printf("PLAYER1- Paper | PLAYER2 -Paper\n" );
-			printf("Game Draw!!\n");
+			printf("Game Draw!!\n\n");
 		}
 		else{
-			printf("Wrong Input By player !!\n Computer wins !!");
+			printf("Wrong Input By player !!\n");
 		}
 	}
 	
 	printf("press 1 to exit else press 0 to continue!!\n");
-	scanf("%d",&e);
+	   scanf("%d",&e);
 
-	if(e==1){
-		 z2=0;
-	}
-	else {
-	   z2=1;
-	}
+	   if(e==1){
+		   z2=0;
+	   }
+	   else {
+	      z2=1;
+	   }
+	 
+	 return z2;
+	   
+	next:
+	   printf("press 1 to exit else press 0 to restart!!\n");
+	   scanf("%d",&e);
+
+	   if(e==1){
+		   z2=0;
+	   }
+	   else {
+	      z2=1;
+	   }
 	return z2;
 }
